@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue Project</title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.0.5/gsap.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+	<div class="overlay">
+		<button id="btn" onclick="clickme()">Explore</button>
+		<div class="slogan">
+			<h1 style="font-family: Arial,sans-serif;font-size: 75px; color: grey; font-weight: 500;"> SHOP</h1>
+						<h2 style="font-family: Arial,sans-serif;font-size: 55px; color: grey; font-weight: 500;"> Where Expectation meets </h2>
+	
+		</div>
+	</div>
+	<div class="nav-bar"></div>
+	
+	<div id="app">
+		<h1>Welcome to Socks Shop</h1>
+		<product class="product" title="Printed Long socks for men" price="199" Discription=" These comfortable, lightweight and colorful men's socks also could be given as a gift, novelty birthday gift or gift to your son, husband or anyone who loves comfy dress socks. Preferred Blend of Premium Combed Cotton that is soft and lets your feet breath. Our European quality socks are made using the finest combed cotton.  "  ></product>
+		<product class="product" title="Men Printed Ankle Length " price="299" Discription="These are the classic favorite. They are soft, thick, very fashionable, and make your feet feel wonderful. They go well with jeans, slacks, dress trousers, and all kinds of mens footwear. These dress socks can be match up to your business outfits or casual clothes, and are perfect for office, weddings, business receptions, school or casual occasions. "  ></product>
+		
+	</div>
+
+	
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+<script src="app.js"></script>
+<script type="text/javascript">
+	var tl=gsap.timeline()
+		.from('.nav-bar',0.7,{opacity:0,ease:Power2.easeInOut,y:-20})
+		.from("h1",0.6,{opacity:0,ease:Power2.easeInOut,y:-20})
+		.from('h2',0.4,{opacity:0,ease:Power2.easeInOut,y:-20})
+		.from('#btn',0.4,{opacity:0,ease:Power2.easeInOut,y:-20})
+		.to('.product-image', 0.3, {opacity:0, ease: Power1.easeInOut,y:+20})
+		.from('.product',0.6,{opacity:0,ease:Power1.easeInOut,y:-30})
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+	function clickme()
+	{
+		// console.log('hi')
+		gsap.to('.overlay',3,{opacity:0, ease: Expo.easeInOut,y:-900})
+		setTimeout(fun,1500) 
+	}
+	function fun(){
+		var tl=gsap.timeline()
+		.from('.nav-bar',0.7,{opacity:0,ease:Power2.easeInOut,y:-20})
+		.from("h1",0.6,{opacity:0,ease:Power2.easeInOut,y:-20})
+		.from('h2',0.4,{opacity:0,ease:Power1.easeInOut,y:-20})
+		.from('#btn',0.4,{opacity:0,ease:Power1.easeInOut,y:-20})
+		.to('.product-image', 0.3, {opacity:1, ease: Power2.easeInOut,y:-10})
+		.from('.product',0.6,{opacity:0,ease:Power1.easeInOut,y:-30})
+		var element = document.getElementsByClassName("overlay")[0];
+  			element.classList.add("myStyle");
+  			$('body').removeClass('stop-scrolling')
+	}
+
+	
+	$('body').addClass('stop-scrolling')
+	
+	
+</script>
+
+</body>
+</html>
